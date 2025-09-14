@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # This script displays all listening ports with their associated PID and program name
-# -t = TCP, -u = UDP, -l les ports en écoute, (LISTEN), -x = inclut les UNIX Sockets, -n = ne résout pas les noms DNS (plus rapide), -p = affiche le programme associé
+# -t = affiche les ports TCP, -u = affiche les ports UDP, -l les ports en écoute, (LISTEN), -x = inclut les UNIX Sockets,
+# -n = Affiche les adresses et ports sous forme numérique (pas de résolution DNS) (plus rapide), -p = affiche le PID + programme associé
 
 sudo netstat -tulxnp

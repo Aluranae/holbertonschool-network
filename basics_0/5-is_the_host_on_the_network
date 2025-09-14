@@ -1,2 +1,11 @@
 #!/usr/bin/env bash
 # This script pings an IP address passed as argument 5 times
+# -c compte le nombre de paquets, 5 = limites le nombre de paquets envoyés
+# "$1" =  le second argument passer en ligne de commande ici l'adresse ip
+
+if [ "$1" == "" ]; then
+    echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+    exit 1
+fi
+
+ping -c 5 "$1"
