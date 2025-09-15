@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 # This script overrides local resolution of localhost and facebook.com using /etc/hosts
 
-# Vérifier que le script est exécuté en tant que root
-if [ "$EUID" -ne 0 ]; then
-  echo "Please run as root"
-  exit 1
-fi
-
+# Sauvegarde de sécurité
+cp /etc/hosts /etc/hosts.bak
 
 # Supprimer les lignes contenant localhost avec 127.0.0.1
 sed -i '/127.0.0.1.*localhost/d' /etc/hosts
