@@ -7,8 +7,6 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-# Sauvegarde de sécurité
-cp /etc/hosts /etc/hosts.bak
 
 # Supprimer les lignes contenant localhost avec 127.0.0.1
 sed -i '/127.0.0.1.*localhost/d' /etc/hosts
