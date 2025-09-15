@@ -7,14 +7,15 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-# Sauvegarder le fichier original
+# Sauvegarde de sécurité
 cp /etc/hosts /etc/hosts.bak
 
-# Supprimer toute ligne existante contenant 'localhost' ou 'facebook.com'
-# Cela évite les doublons
-sed -i '/localhost/d' /etc/hosts
+# Supprimer les lignes contenant localhost avec 127.0.0.1
+sed -i '/127.0.0.1.*localhost/d' /etc/hosts
+
+# Supprimer les lignes contenant facebook.com
 sed -i '/facebook\.com/d' /etc/hosts
 
-# Ajouter les nouvelles redirections demandées
-echo "127.0.0.2 localhost" >> /etc/hosts
-echo "8.8.8.8 facebook.com" >> /etc/hosts
+# Ajouter les nouvelles redirections à la fin
+echo "127.0.0.2 localhost" | tee -a /etc/hosts > /dev/null
+echo "8.8.8.8 facebook.com" | tee -a /etc/hosts > /dev/null
