@@ -17,5 +17,5 @@ sed -i '/127.0.0.1.*localhost/d' /etc/hosts
 sed -i '/facebook\.com/d' /etc/hosts
 
 # Ajouter les nouvelles redirections à la fin
-sed -i '1i127.0.0.2 localhost' /etc/hosts
-sed -i '2i8.8.8.8 facebook.com' /etc/hosts
+echo "127.0.0.2 localhost" | tee -a /etc/hosts > /dev/null
+echo "8.8.8.8 facebook.com" | tee -a /etc/hosts > /dev/null
